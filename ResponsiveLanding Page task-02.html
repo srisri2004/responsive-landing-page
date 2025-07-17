@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillCraft Technology</title>
+  <style>
+    :root {
+      --primary: #4e54c8;
+      --secondary: #8f94fb;
+      --text-dark: #333;
+      --bg-light: #f8f9fa;
+      --nav-height: 60px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    nav.navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: var(--nav-height);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      z-index: 999;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    nav.navbar.scrolled {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+    }
+
+    section img {
+      width: 90%;
+      max-width: 700px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        right: 0;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">SkillCraft</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#blogs">Blogs</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header id="home">
+    <h1>Welcome to SkillCraft Technology</h1>
+    <p>Building interactive, modern, and responsive experiences for the digital world.</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We’re passionate about clean design, modern development, and responsive solutions for real-world business needs.</p>
+    <img src="https://source.unsplash.com/featured/?technology" alt="About Us">
+  </section>
+
+  <!-- Menu / Services Section -->
+  <section id="menu">
+    <h2>Our Services</h2>
+    <p>From web design and development to full-scale digital solutions, our team provides high-quality services tailored to your brand.</p>
+    <img src="https://source.unsplash.com/featured/?webdesign" alt="Services">
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Reach out to us for quotes, collaboration, or questions. We’re happy to connect.</p>
+    <img src="https://source.unsplash.com/featured/?contact,chat" alt="Contact">
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blogs">
+    <h2>Latest Blogs</h2>
+    <p>Check out our latest thoughts on web trends, UX, and creative tech processes.</p>
+    <img src="https://source.unsplash.com/featured/?blogging" alt="Blog">
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Toggle menu on mobile
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
